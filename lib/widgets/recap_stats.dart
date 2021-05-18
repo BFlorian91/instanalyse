@@ -14,27 +14,55 @@ class RecapStats extends StatefulWidget {
 class _RecapStatsState extends State<RecapStats> {
   @override
   Widget build(BuildContext context) {
+    final double widthSplit = MediaQuery.of(context).size.width / 3;
     return SizedBox(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              Text(widget.numberPost),
-              const Text('Posts'),
-            ],
+          SizedBox(
+            width: widthSplit,
+            child: Column(
+              children: <Widget>[
+                Text(
+                  widget.numberPost,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                const Text(
+                  'Posts',
+                  style: TextStyle(fontSize: 12),
+                ),
+              ],
+            ),
           ),
-          Column(
-            children: <Widget>[
-              Text(widget.numberOfFollowers),
-              const Text('Followers')
-            ],
+          SizedBox(
+            width: widthSplit,
+            child: Column(
+              children: <Widget>[
+                Text(
+                  widget.numberOfFollowers,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                const Text(
+                  'Followers',
+                  style: TextStyle(fontSize: 12),
+                )
+              ],
+            ),
           ),
-          Column(
-            children: <Widget>[
-              Text(widget.numberOfFollowing),
-              const Text('Following')
-            ],
+          SizedBox(
+            width: widthSplit,
+            child: Column(
+              children: <Widget>[
+                Text(
+                  widget.numberOfFollowing,
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                ),
+                const Text(
+                  'Following',
+                  style: TextStyle(fontSize: 12),
+                )
+              ],
+            ),
           )
         ],
       ),
