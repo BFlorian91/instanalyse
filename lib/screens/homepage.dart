@@ -1,7 +1,9 @@
 import 'package:adaptive_theme/adaptive_theme.dart';
 import 'package:flutter/material.dart';
+// import 'package:flutter_insta/flutter_insta.dart';
 
 import 'package:flutter/cupertino.dart';
+import 'package:insanalyse/models/account_details.dart';
 import 'package:insanalyse/widgets/custom_circle_avatar.dart';
 import 'package:insanalyse/widgets/new_stat.dart';
 import 'package:insanalyse/widgets/recap_stats.dart';
@@ -11,7 +13,24 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<HomePage>
+    with SingleTickerProviderStateMixin {
+  // FlutterInsta flutterInsta = FlutterInsta();
+  final AccountDetails accountDetails = AccountDetails();
+  String username = '',
+      followers = '',
+      following = '',
+      bio = '',
+      website = '',
+      profileimage = '';
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    getDetailsOfAccount('fb_visuals');
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,5 +76,18 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
     );
+  }
+
+  Future<void> getDetailsOfAccount(String username) async {
+    // await flutterInsta.getProfileData(username);
+    setState(() {
+      // this.username = flutterInsta.username.toString(); //username
+      // followers = flutterInsta.followers.toString(); //number of followers
+      // following = flutterInsta.following.toString(); // number of following
+      // website = flutterInsta.website.toString(); // bio link
+      // bio = flutterInsta.bio.toString(); // Bio
+      // profileimage = flutterInsta.imgurl.toString(); // Profile picture URL
+      // print(followers);
+    });
   }
 }
